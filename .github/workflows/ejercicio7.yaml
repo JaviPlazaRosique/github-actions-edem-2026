@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Generar número aleatorio
-        run: echo $(( $RANDOM % 100 )) >> $GITHUB_OUTPUT
+        run: echo $RANDOM | base64 >> $GITHUB_OUTPUT
 
   leer-numero:
     needs: generar-numero
