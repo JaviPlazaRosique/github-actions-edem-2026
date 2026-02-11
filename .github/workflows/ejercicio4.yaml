@@ -1,0 +1,29 @@
+name: Ejercicio 4
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generar-archivo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crear archivo de texto
+        run: echo "Hola, este es un mensaje guardado en un artefacto" > mensaje.txt
+      
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: mi-artefacto-txt
+          path: mensaje.txt
+
+  leer-archivo:
+    needs: generar-archivo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar artefacto
+        uses: actions/download-artifact@v4
+        with:
+          name: mi-artefacto-txt
+      
+      - name: Mostrar contenido
+        run: cat mensaje.txt

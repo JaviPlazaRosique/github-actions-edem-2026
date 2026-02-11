@@ -1,0 +1,15 @@
+name: Ejercicio 5
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'docs/**'
+
+jobs:
+  cambios-en-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notificar cambio
+        run: echo "Se han detectado cambios en la carpeta docs/ de la rama develop."
