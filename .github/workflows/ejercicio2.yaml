@@ -1,0 +1,12 @@
+name: Ejercicio 2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  simular-login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Secreto
+        run: |
+          echo "Secreto: ${{ secrets.SecretoEjercio2 }}"

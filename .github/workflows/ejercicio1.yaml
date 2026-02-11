@@ -1,0 +1,20 @@
+name: Ejercicio 1
+
+on:
+  workflow_dispatch:
+
+env:
+  MENSAJE_GLOBAL: "Variable de entorno global"
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: JOB 1
+        run: echo "${{ env.MENSAJE_GLOBAL }}"
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: JOB 2
+        run: echo "${{ env.MENSAJE_GLOBAL }}"
