@@ -1,0 +1,16 @@
+name: Ejercicio 6
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validar-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Validar archivo data.json
+        uses: orrosenblatt/validate-json-action@v1
+        env:
+          INPUT_FILE: data.json

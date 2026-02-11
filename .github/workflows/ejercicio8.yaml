@@ -1,0 +1,14 @@
+name: Ejercicio 8
+
+on:
+  schedule:
+    # Minuto 0, Hora 9, Cualquier día del mes, Cualquier mes, Día de la semana 1 (Lunes)
+    - cron: '0 9 * * 1'
+  workflow_dispatch: # Permite probarlo manualmente sin esperar al lunes
+
+jobs:
+  tarea-programada:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notificación semanal
+        run: echo "Es lunes a las 9:00 AM UTC. Ejecutando tarea programada."

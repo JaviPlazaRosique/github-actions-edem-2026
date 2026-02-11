@@ -1,0 +1,21 @@
+name: Ejercicio 7
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  generar-numero:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generar número aleatorio
+        run: echo $(( $RANDOM % 100 )) >> $GITHUB_OUTPUT
+
+  leer-numero:
+    needs: generar-numero
+    runs-on: ubuntu-latest  
+    steps:
+      - name: Mostrar número
+        run: echo ${{ steps.generar-numero.outputs.numero }}
+        env:
+          numero: ${{ steps.generar-numero.outputs.numero }}
